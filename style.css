@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100vh;
+}
+
+span {
+  font-size: 40px;
+}
+
+main {
+  position: absolute;
+  margin: 30px;
+}
+
+.muncul {
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideInLeft 2s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fotoprofil img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 45px;
+  margin-left: 7rem;
+
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(42, 164, 180, 0.596);
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: munculDariAtas 1s ease-out forwards;
+}
+
+@keyframes munculDariAtas {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fotoprofil img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(42, 164, 180, 0.596), 0 0 20px rgba(255, 192, 203, 0.8),
+    0 0 20px rgba(255, 192, 203, 0.8);
+    translate: translateY(-50px);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+nav {
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: slideDown 5s forwards;
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+nav a {
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  gap: 15px;
+  z-index: 1;
+  text-decoration: none;
+  color: #f4cfc7;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
+.nav-btn {
+  padding: 10px;
+  border: 2px solid whitesmoke;
+  border-radius: 12px;
+  background-color: transparent;
+  color: whitesmoke;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+
+  box-shadow: 0 0 5px #0ff, 0 0 10px rgba(255, 192, 203, 0.8),
+    0 0 20px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 192, 203, 0.8);
+  text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+    0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+    0 0 20px rgba(255, 192, 203, 0.8);
+  transition: transform 0.1s ease, box-shadow 0.2s;
+}
+
+.nav-btn:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(100, 100, 255, 0.5); /* Ganti highlight biru dengan versi lebih halus */
+}
+
+.nav-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px #0ff, 0 0 24px #fff, 0 0 40px #0ff;
+  z-index: 2;
+}
+
+#bg-video {
+  position: fixed;
+  margin-top: 0px;
+
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Coba juga cover */
+  object-position: center;
+  z-index: -1;
+  background-color: lightgrey;
+}
+
+.content {
+  margin-top: 100px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  z-index: 1;
+  color: #29292e;
+  text-align: left;
+  width: 100%;
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.8),
+    0 0 10px rgba(255, 192, 203, 0.8);
+}
+
+.content .muncul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: white;
+  background: transparent;
+  font-family: "Orbitron", sans-serif;
+  font-size: 25px;
+  z-index: 2;
+
+  text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+    0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+    0 0 20px rgba(255, 192, 203, 0.8);
+}
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0f0f1a;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-wrapper.hidden {
+  display: none;
+}
+
+.cyber-loader {
+  position: relative;
+  color: #00fff7;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+  animation: glitch 1s infinite;
+}
+
+.scan-line {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 255, 247, 0.2) 50%,
+    transparent 100%
+  );
+  animation: scan 1.5s infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@media (max-width: 758px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .muncul {
+    font-size: 10px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+
+  .muncul .saya {
+    font-size: 3rem;
+  }
+
+  .muncul section {
+    padding-top: 1.8rem;
+  }
+
+  .muncul section p span {
+    font-size: 2.7rem;
+  }
+}

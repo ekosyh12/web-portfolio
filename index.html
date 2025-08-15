@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eko</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- tinggal ganti nama untuk logonya -->
+
+    <div class="logo">Eko syahputra</div>
+
+    <video autoplay muted loop id="bg-video">
+      <source
+        src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/main/202718-918779955_large.mp4"
+        type="video/mp4"
+      />
+      Browser kamu tidak mendukung video HTML5.
+    </video>
+
+    <nav>
+      <a class="nav-btn">About Me</a>
+      <a href="MySkill.html" class="nav-btn">My Skill</a>
+      <a href="#projects" class="nav-btn">My Project</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
+
+    <div id="loader" class="loader-wrapper hidden">
+      <div class="cyber-loader">
+        <span>LOADING</span>
+        <div class="scan-line"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="fotoprofil">
+        <!--  ini kalo mau ganti foto profil -->
+
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/main/fotor_1753449489710.jpg"
+          alt="gagal di muat"
+        />
+      </div>
+
+      <main class="muncul">
+        <h1 class="saya">TENTANG SAYA</h1>
+        <br />
+        <!--  ini tinggal ganti nama -->
+        <section>
+          <p>
+            <span>S</span>aya Eko Syahputra,<br />
+            seorang Junior Web Developer yang antusias dan terus berkembang di
+            dunia pengembangan web.<br />
+            Saya memiliki keahlian dalam membangun aplikasi web yang responsif,
+            efisien, dan user-friendly, dengan fondasi yang kuat dalam HTML,
+            CSS, dan JavaScript di sisi front-end,<br />
+            serta PHP Laravel, MongoDB, dan teknologi back-end lainnya.
+          </p>
+
+          <p>
+            <br />Saya percaya bahwa teknologi adalah alat untuk menciptakan
+            solusi nyata.<br />
+            Oleh karena itu, saya selalu terbuka terhadap tantangan baru dan
+            terus belajar untuk memperluas kemampuan saya dalam pengembangan web
+            modern.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const links = document.querySelectorAll(".nav-btn");
+      const loader = document.getElementById("loader");
+
+      links.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          loader.classList.remove("hidden");
+
+          const targetUrl = this.href;
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 2000); // Tambahkan delay cyberpunk
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eko Syahputra</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+            @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+
+            body,
+            html {
+              min-height: 100vh;
+              margin: 0;
+              background: transparent;
+            }
+
+            .container {
+              max-width: 90%;
+              padding: 25px;
+              margin: 60px auto 0 auto;
+              margin-bottom: 40px;
+              text-align: center;
+              color: whitesmoke;
+              font-family: "Orbitron", sans-serif;
+              font-size: 20px;
+              background-color: rgba(15, 15, 26, 0.8);
+              box-shadow: 0 0 5px #0ff, 0 0 10px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 192, 203, 0.8);
+              border-radius: 8px;
+              padding-bottom: 40px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 32px;
+              min-height: 100px;
+              opacity: 0;
+              transform: translateX(-80px);
+              animation: slideInLeft 1.2s cubic-bezier(0.77, 0, 0.18, 1) 2s forwards;
+            }
+
+            @keyframes slideInLeft {
+              0% {
+                opacity: 0;
+                transform: translateX(-80px);
+              }
+              80% {
+                opacity: 1;
+                transform: translateX(10px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+
+            .container .front-end {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+            }
+
+            .container .back-end {
+              display: flex;
+              justify-content: center;
+            }
+            h1 {
+              font-family: "Orbitron", sans-serif;
+              color: whitesmoke;
+
+              text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+                0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8);
+            }
+
+            p {
+              font-family: "Orbitron", sans-serif;
+              color: whitesmoke;
+              text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+                0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8);
+            }
+
+            .container img {
+              width: 100px;
+              height: 100px;
+              object-fit: cover;
+              margin: 25px auto 0 auto;
+              border-radius: 20%;
+              display: block;
+              box-shadow: 0 0 5px #0ff, 0 0 10px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 192, 203, 0.8);
+              border-bottom: 2px solid #fff;
+              padding-bottom: 10px;
+              transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s;
+            }
+
+            .container img:hover {
+              transform: translateY(-18px) scale(1.08) rotate(-3deg);
+              box-shadow: 0 8px 32px #0ff, 0 0 24px #fff, 0 0 40px #0ff;
+              z-index: 2;
+            }
+
+            .container ul a {
+              font-family: "Orbitron", sans-serif;
+              gap: 5px;
+              text-decoration: none;
+              color: whitesmoke;
+              display: flex;
+              align-items: center;
+              gap: 4px;
+              text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+                0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8);
+            }
+            nav {
+              display: flex;
+              justify-content: flex-end;
+            }
+
+            nav {
+              opacity: 0;
+              transform: translateY(-100%);
+              animation: slideDown 5s forwards;
+            }
+
+            @keyframes slideDown {
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            nav a {
+              font-family: "Orbitron", sans-serif;
+              display: flex;
+              gap: 15px;
+              z-index: 1;
+              text-decoration: none;
+              color: #f4cfc7;
+              margin-right: 25px;
+              margin-top: 15px;
+            }
+
+            .nav-btn {
+              padding: 10px;
+              border: 2px solid whitesmoke;
+              border-radius: 12px;
+              background-color: transparent;
+              color: whitesmoke;
+              cursor: pointer;
+              text-decoration: none;
+              display: inline-block;
+
+              box-shadow: 0 0 5px #0ff, 0 0 10px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 192, 203, 0.8);
+              text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+                0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8);
+
+              transition: transform 0.1s ease, box-shadow 0.2s;
+            }
+
+            .nav-btn:active {
+              transform: scale(0.95);
+              box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-btn:focus {
+              outline: none;
+              box-shadow: 0 0 0 2px rgba(100, 100, 255, 0.5); /* Ganti highlight biru dengan versi lebih halus */
+            }
+
+            .nav-btn:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 8px 32px #0ff, 0 0 24px #fff, 0 0 40px #0ff;
+              z-index: 2;
+            }
+
+            #bg-video {
+              position: fixed;
+              margin-top: 0px;
+
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              object-fit: cover; /* Coba juga cover */
+              object-position: center;
+              z-index: -1;
+              background-color: lightgrey;
+            }
+
+            .logo {
+              position: absolute;
+              top: 15px;
+              left: 20px;
+              color: white;
+              background: transparent;
+              font-family: "Orbitron", sans-serif;
+              font-size: 25px;
+              z-index: 2;
+
+              text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+                0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+                0 0 20px rgba(255, 192, 203, 0.8);
+            }
+
+            .loader-wrapper {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: #0f0f1a;
+              z-index: 9999;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .loader-wrapper.hidden {
+              display: none;
+            }
+
+            .cyber-loader {
+              position: relative;
+              color: #00fff7;
+              font-size: 2rem;
+              letter-spacing: 4px;
+              text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+              animation: glitch 1s infinite;
+            }
+
+            .scan-line {
+              position: absolute;
+              top: -100%;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(0, 255, 247, 0.2) 50%,
+                transparent 100%
+              );
+              animation: scan 1.5s infinite;
+            }
+
+            @keyframes scan {
+              0% {
+                top: -100%;
+              }
+              100% {
+                top: 100%;
+              }
+            }
+
+            @keyframes glitch {
+              0% {
+                transform: translate(0);
+              }
+              20% {
+                transform: translate(-1px, 1px);
+              }
+              40% {
+                transform: translate(-1px, -1px);
+              }
+              60% {
+                transform: translate(1px, 1px);
+              }
+              80% {
+                transform: translate(1px, -1px);
+              }
+              100% {
+                transform: translate(0);
+              }
+            }
+
+            .bounce {
+              display: inline-block;
+              font-size: 40px;
+              transition: transform 0.3s;
+              animation: bounce 2s infinite;
+            }
+
+            @keyframes bounce {
+              0%,
+              100% {
+                transform: translateY(0);
+              }
+              30% {
+                transform: translateY(-10px);
+              }
+              50% {
+                transform: translateY(0);
+              }
+              70% {
+                transform: translateY(-5px);
+              }
+            }
+
+            @media (max-width: 758px) {
+        html {
+          font-size: 62.5%;
+        }
+
+        .logo {
+          display: none;
+        }
+
+        .container {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- tinggal ganti nama untuk logo nya -->
+    <div class="logo">Eko syahputra</div>
+
+    <!-- ini adalah background vidio -->
+
+    <video autoplay muted loop id="bg-video">
+      <source
+        src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/main/202718-918779955_large.mp4"
+        type="video/mp4"
+      />
+      Browser kamu tidak mendukung video HTML5.
+    </video>
+
+    <!-- ini tombol navigasi -->
+
+    <nav>
+      <a href="index.html" class="nav-btn">About Me</a>
+      <a href="#" class="nav-btn">My Skill</a>
+      <a href="#" class="nav-btn">My Project</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
+F
+    <!-- ini adalah loading page -->
+
+    <div id="loader" class="loader-wrapper hidden">
+      <div class="cyber-loader">
+        <span>LOADING</span>
+        <div class="scan-line"></div>
+      </div>
+    </div>
+
+    <!-- ini adalah isi konten -->
+
+    <div class="container">
+      <!-- Gambar Front End -->
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 24px;
+          width: 100%;
+          max-width: 600px;
+        "
+      >
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/main/html5.png"
+          alt="HTML5"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/refs/heads/main/css.png"
+          alt="CSS3"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/refs/heads/main/js.png"
+          alt="JavaScript"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+      </div>
+      <!-- Artikel Front End -->
+      <article
+        style="width: 100%; max-width: 600px; margin: 0 auto; text-align: left"
+      >
+        <h2 style="color: #0ff">Front End Skills</h2>
+        <ul style="margin-left: 20px">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript (ES6+)</li>
+          <li>Responsive Web Design</li>
+          <li>Bootstrap / Tailwind CSS</li>
+        </ul>
+      </article>
+      <!-- Gambar Laravel Back End -->
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          max-width: 600px;
+          margin-bottom: 16px;
+        "
+      >
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/2f4b042cf443afb0c8b87d5aa5aac74a3c93184f/download.svg"
+          alt="Laravel"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/refs/heads/main/imgi_1_mongodb-logo-png_seeklogo-481256.png"
+          alt="MongoDB"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+        <img
+          src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/7632368f15c3864a670359e39a19fa586131df20/download.svg"
+          alt="MySQL"
+          style="
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            box-shadow: 0 0 5px #0ff;
+          "
+        />
+      </div>
+      <!-- Artikel Back End -->
+      <article
+        style="width: 100%; max-width: 600px; margin: 0 auto; text-align: left"
+      >
+        <h2 style="color: #0ff">Back End Skills</h2>
+        <ul style="margin-left: 20px">
+          <li>Laravel</li>
+          <li>MongoDB</li>
+          <li>MySQL</li>
+        </ul>
+      </article>
+    </div>
+
+    <script>
+      const links = document.querySelectorAll(".nav-btn");
+      const loader = document.getElementById("loader");
+
+      links.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          loader.classList.remove("hidden");
+
+          const targetUrl = this.href;
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 2000); // Tambahkan delay cyberpunk
+        });
+      });
+    </script>
+  </body>
+</html>
