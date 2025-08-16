@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eko</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        height: 500vh;
+      }
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+      }
+      nav {
+        opacity: 0;
+        transform: translateY(-100%);
+        animation: slideDown 5s forwards;
+      }
+
+      @keyframes slideDown {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      nav a {
+        font-family: "Orbitron", sans-serif;
+        display: flex;
+        gap: 15px;
+        z-index: 1;
+        text-decoration: none;
+        color: #f4cfc7;
+        margin-right: 25px;
+        margin-top: 15px;
+      }
+
+      .nav-btn {
+        padding: 10px;
+        border: 2px solid whitesmoke;
+        border-radius: 12px;
+        background-color: transparent;
+        color: whitesmoke;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+
+        box-shadow: 0 0 5px #0ff, 0 0 10px rgba(255, 192, 203, 0.8),
+          0 0 20px rgba(255, 192, 203, 0.8), 0 0 40px rgba(255, 192, 203, 0.8);
+        text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+          0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+          0 0 20px rgba(255, 192, 203, 0.8);
+        transition: transform 0.1s ease, box-shadow 0.2s;
+      }
+
+      .nav-btn:active {
+        transform: scale(0.95);
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(100, 100, 255, 0.5); /* Ganti highlight biru dengan versi lebih halus */
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 32px #0ff, 0 0 24px #fff, 0 0 40px #0ff;
+        z-index: 2;
+      }
+
+      #bg-video {
+        position: fixed;
+        margin-top: 0px;
+
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover; /* Coba juga cover */
+        object-position: center;
+        z-index: -1;
+        background-color: lightgrey;
+      }
+
+      .container {
+        max-width: 80vw;
+        height: 100vh;
+        background: transparent;
+        border: 1px solid #f4cfc7;
+        margin: 8rem auto 5rem;
+        display: flex;
+        box-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+          0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+          0 0 20px rgba(255, 192, 203, 0.8);
+      }
+
+      .logo {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        color: white;
+        background: transparent;
+        font-family: "Orbitron", sans-serif;
+        font-size: 25px;
+        z-index: 2;
+
+        text-shadow: 0 0 5px rgba(255, 192, 203, 0.8),
+          0 0 10px rgba(255, 192, 203, 0.8), 0 0 20px rgba(255, 192, 203, 0.8),
+          0 0 20px rgba(255, 192, 203, 0.8);
+      }
+
+      .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #0f0f1a;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loader-wrapper.hidden {
+        display: none;
+      }
+
+      .cyber-loader {
+        position: relative;
+        color: #00fff7;
+        font-size: 2rem;
+        letter-spacing: 4px;
+        text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7;
+        animation: glitch 1s infinite;
+      }
+
+      .scan-line {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(0, 255, 247, 0.2) 50%,
+          transparent 100%
+        );
+        animation: scan 1.5s infinite;
+      }
+
+      @keyframes scan {
+        0% {
+          top: -100%;
+        }
+        100% {
+          top: 100%;
+        }
+      }
+
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-1px, 1px);
+        }
+        40% {
+          transform: translate(-1px, -1px);
+        }
+        60% {
+          transform: translate(1px, 1px);
+        }
+        80% {
+          transform: translate(1px, -1px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+
+      @media (max-width: 758px) {
+        html {
+          font-size: 62.5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- tinggal ganti nama untuk logonya -->
+
+    <div class="logo">Eko syahputra</div>
+
+    <video autoplay muted loop id="bg-video">
+      <source
+        src="https://raw.githubusercontent.com/ekosyh12/simpan-gambar-html/main/202718-918779955_large.mp4"
+        type="video/mp4"
+      />
+      Browser kamu tidak mendukung video HTML5.
+    </video>
+
+    <nav>
+      <a class="nav-btn">About Me</a>
+      <a href="MySkill.html" class="nav-btn">My Skill</a>
+      <a href="#projects" class="nav-btn">My Project</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
+
+    <div class="container"></div>
+
+    <!-- kontent loading -->
+    <div id="loader" class="loader-wrapper hidden">
+      <div class="cyber-loader">
+        <span>LOADING</span>
+        <div class="scan-line"></div>
+      </div>
+    </div>
+    <script>
+      const links = document.querySelectorAll(".nav-btn");
+      const loader = document.getElementById("loader");
+
+      links.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          loader.classList.remove("hidden");
+
+          const targetUrl = this.href;
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 2000); // Tambahkan delay cyberpunk
+        });
+      });
+    </script>
+  </body>
+</html>
